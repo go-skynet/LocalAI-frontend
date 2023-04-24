@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Frontend WebUI for LocalAI Backend API
+This is a frontend web user interface (WebUI) that allows you to interact with AI models through a LocalAI backend API. The WebUI is built using material design principles and is designed to be hosted on GitHub. It provides a simple and intuitive way to select and interact with different AI models that are stored in the /models directory of the LocalAI folder.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/42107491/234082693-66c0781f-28eb-4bf6-aa1d-bc722723b114.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+# Features
+### Material design interface: 
+The WebUI is designed using Google's material design principles, which provides a clean and modern user interface.
 
-### `npm start`
+### Model selection: 
+The WebUI allows you to select from a list of AI models that are stored in the /models directory of the application. You can easily switch between different models and interact with them in real-time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### API integration: 
+The WebUI connects with the LocalAI backend API to send requests and receive responses from the AI models. It uses API calls as specified in the LocalAI project and just works with it
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Interactive chat interface: 
+The WebUI provides a chat-like interface for interacting with the AI models. You can input text and receive responses from the models in a conversational manner, making it easy to have interactive conversations with the AI models.
 
-### `npm test`
+### Easy deployment: 
+The WebUI is designed to be hosted any where you want, just edit the URL of your API endpoint and it should work!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Getting Started
+To use the frontend WebUI, follow the steps below:
 
-### `npm run build`
+### Clone the repository: 
+If you don't know how to do this, you shouldn't probably be here?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install dependencies: 
+Navigate to the cloned repository directory and install the dependencies by running npm install or yarn install, depending on your package manager of choice.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Configure the backend API: 
+Update the API endpoint link in the ChatGptInterface.js file to point to your LocalAI backend API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Add AI models: 
+Place your AI models in the /models directory of the LocalAI folder. Make sure that the models are compatible with the backend API and follow the required file format and naming conventions and start your docker container
 
-### `npm run eject`
+### Start the WebUI: 
+Start the development server by running npm start or yarn start, depending on your package manager of choice. This will launch the WebUI in your default web browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Select and interact with models: 
+In the WebUI, you can now select the AI models from the model selection menu and interact with them using the chat interface. Input text and receive responses from the models in real-time.

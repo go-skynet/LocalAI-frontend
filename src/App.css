@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+/* CSS for chat container */
+.chat-container {
+  height: calc(100vh - 60px); /* Set height to viewport height - 60px for chat input and submit button */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  padding: 20px;
+  background-color: #f3f3f3;
+  box-sizing: border-box; /* Fix box-sizing to prevent layout issues */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* CSS for chat messages */
+.chat-messages {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; /* Enable auto-scroll for messages */
+}
+
+/* CSS for chat message */
+.chat-message {
+  display: flex;
+}
+
+.message-role {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.message-content {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* CSS for user message */
+.user-message .message-role {
+  color: #007bff;
+}
+
+.user-message .message-content {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+}
+
+/* CSS for assistant message */
+.assistant-message .message-role {
+  color: #28a745;
+}
+
+.assistant-message .message-content {
+  background-color: #28a745;
+  color: #fff;
+  align-self: flex-start;
+}
+
+/* CSS for chat input */
+.chat-input {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box; /* Fix box-sizing to prevent layout issues */
+  position: fixed; /* Fix position to bottom of viewport */
+  bottom: 0;
+  width: 100%; /* Set width to 100% to cover the entire viewport */
 }
 
-.App-link {
-  color: #61dafb;
+.input-field {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submit-button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* CSS for error message */
+.error-message {
+  padding: 10px;
+  background-color: #ff6b6b;
+  color: #fff;
 }

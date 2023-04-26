@@ -36,7 +36,7 @@ const handleSubmit = async () => {
     };
 
     const response = await fetch(
-      "http://IP:8080/v1/chat/completions",
+      "http://localhost:8080/v1/chat/completions",
       requestOptions
     );
 
@@ -75,7 +75,7 @@ const handleSubmit = async () => {
     const fetchModels = async () => {
       try {
         const response = await fetch(
-          "http://IP:8080/v1/models"
+          "http://localhost:8080/v1/models"
         );
         const data = await response.json();
         setModels(data?.data || []);

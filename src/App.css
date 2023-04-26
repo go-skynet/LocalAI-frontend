@@ -1,10 +1,10 @@
 /* CSS for chat container */
 .chat-container {
-  height: calc(100vh - 60px); /* Set height to viewport height - 60px for chat input and submit button */
-  overflow-y: scroll; /* Enable vertical scrolling */
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
   padding: 20px;
-  background-color: #f3f3f3;
-  box-sizing: border-box; /* Fix box-sizing to prevent layout issues */
+  background-color: #333; /* Update background color to dark */
+  box-sizing: border-box;
 }
 
 /* CSS for chat messages */
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow-y: auto; /* Enable auto-scroll for messages */
+  overflow-y: auto;
 }
 
 /* CSS for chat message */
@@ -23,11 +23,14 @@
 .message-role {
   font-weight: bold;
   margin-right: 5px;
+  color: #fff; /* Update text color to white */
 }
 
 .message-content {
   padding: 10px;
   border-radius: 5px;
+  background-color: #444; /* Update background color to darker shade */
+  color: #fff; /* Update text color to white */
 }
 
 /* CSS for user message */
@@ -58,12 +61,12 @@
   align-items: center;
   gap: 10px;
   padding: 20px;
-  background-color: #f3f3f3;
-  border-top: 1px solid #ddd;
-  box-sizing: border-box; /* Fix box-sizing to prevent layout issues */
-  position: fixed; /* Fix position to bottom of viewport */
+  background-color: #222; /* Update background color to darker shade */
+  border-top: 1px solid #444; /* Update border color to darker shade */
+  box-sizing: border-box;
+  position: fixed;
   bottom: 0;
-  width: 100%; /* Set width to 100% to cover the entire viewport */
+  width: 100%;
 }
 
 .input-field {
@@ -71,6 +74,8 @@
   padding: 10px;
   border: none;
   border-radius: 3px;
+  background-color: #444; /* Update background color to darker shade */
+  color: #fff; /* Update text color to white */
 }
 
 .submit-button {
@@ -92,4 +97,23 @@
   padding: 10px;
   background-color: #ff6b6b;
   color: #fff;
+}
+
+/* App.css */
+.model-dropdown {
+  /* Add styles for dark mode */
+  background-color: #222;
+  color: #fff;
+  border: none;
+  padding: 10px;
+}
+
+.model-dropdown select {
+  /* Add styles for dark mode */
+  background-color: #444;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
 }

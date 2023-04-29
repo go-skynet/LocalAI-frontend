@@ -23,6 +23,15 @@ The WebUI is designed to be hosted any where you want, just edit the URL of your
 # Getting Started
 To use the frontend WebUI, follow the steps below:
 
+### Docker method (Preferred)
+Move the sample-docker-compose.yaml to docker-compose.yaml in the LocalAI directory, and run:
+```bash
+docker-compose up -d --build
+```
+That should take care of it, you can use a reverse proxy like Apache to access it from wherever you want!
+
+## Alternative method
+
 ### Clone the repository: 
 If you don't know how to do this, you shouldn't probably be here?
 

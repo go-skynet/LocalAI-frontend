@@ -1,119 +1,109 @@
 /* CSS for chat container */
-.chat-container {
-  height: calc(100vh - 60px);
-  overflow-y: scroll;
-  padding: 20px;
-  background-color: #333; /* Update background color to dark */
-  box-sizing: border-box;
+.chat-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1d1d; /* Update background color to dark */
+  color: #fff; /* Update text color to white */
+}
+
+.model-dropdown select {
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #292929;
+  color: #fff;
 }
 
 /* CSS for chat messages */
-.chat-messages {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow-y: auto;
+.chat-container {
+  height: calc(80vh - 60px);
+  width: 70%;
+  max-width: 2000px;
+  margin: 0 auto;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  overflow-y: scroll;
+  background-color: #292929; /* Update background color to dark */
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.chat-container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 /* CSS for chat message */
 .chat-message {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.assistant-message {
+  align-items: flex-start;
 }
 
 .message-role {
+  font-size: 0.9rem;
   font-weight: bold;
-  margin-right: 5px;
-  color: #fff; /* Update text color to white */
 }
 
 .message-content {
   padding: 10px;
   border-radius: 5px;
-  background-color: #444; /* Update background color to darker shade */
-  color: #fff; /* Update text color to white */
-}
-
-/* CSS for user message */
-.user-message .message-role {
-  color: #007bff;
-}
-
-.user-message .message-content {
-  background-color: #007bff;
-  color: #fff;
-  align-self: flex-end;
-}
-
-/* CSS for assistant message */
-.assistant-message .message-role {
-  color: #28a745;
-}
-
-.assistant-message .message-content {
-  background-color: #28a745;
-  color: #fff;
-  align-self: flex-start;
+  font-size: 1.1rem;
+  background-color: #fff; /* Update background color to white */
+  color: #1d1d1d; /* Update text color to dark */
 }
 
 /* CSS for chat input */
 .chat-input {
   display: flex;
-  align-items: center;
   gap: 10px;
-  padding: 20px;
-  background-color: #222; /* Update background color to darker shade */
-  border-top: 1px solid #444; /* Update border color to darker shade */
-  box-sizing: border-box;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  margin-top: 20px;
 }
 
 .input-field {
-  flex-grow: 1;
+  flex: 1;
   padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 5px;
   border: none;
-  border-radius: 3px;
-  background-color: #444; /* Update background color to darker shade */
-  color: #fff; /* Update text color to white */
+  background-color: #292929;
+  color: #fff;
 }
 
 .submit-button {
-  padding: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
   border: none;
-  border-radius: 3px;
-  background-color: #007bff;
+  background-color: #1db954; /* Update background color to green */
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.submit-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.submit-button:hover {
+  background-color: #1ed760; /* Update background color on hover */
 }
 
 /* CSS for error message */
 .error-message {
-  padding: 10px;
-  background-color: #ff6b6b;
-  color: #fff;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ff6961; /* Update text color to red */
 }
 
-/* App.css */
 .model-dropdown {
-  /* Add styles for dark mode */
-  background-color: #222;
-  color: #fff;
-  border: none;
-  padding: 10px;
-}
-
-.model-dropdown select {
-  /* Add styles for dark mode */
-  background-color: #444;
-  color: #fff;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  width: 100%;
+  margin-bottom: 20px;
 }

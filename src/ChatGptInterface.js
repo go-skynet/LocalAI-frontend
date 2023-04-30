@@ -120,7 +120,7 @@ const [selectedModel, setSelectedModel] = useState(""); // Added state for selec
               }`}
             >
               <span className="message-role">
-                {message.role === "user" ? "You" : "ChatGpt"}:
+                {message.role === "user" ? "You" : "LocalAI"}:
               </span>
               <span className="message-content">{message.content}</span>
             </div>

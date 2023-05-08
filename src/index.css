@@ -1,13 +1,123 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* CSS for chat container */
+.chat-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1d1d; /* Update background color to dark */
+  color: #fff; /* Update text color to white */
+}
+
+.model-dropdown select {
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #292929;
+  color: #fff;
+}
+
+/* CSS for chat messages */
+.chat-container {
+  height: calc(80vh - 60px);
+  width: 70%;
+  max-width: 2000px;
+  margin: 0 auto;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll;
+  background-color: #292929; /* Update background color to dark */
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* CSS for chat message */
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.assistant-message {
+  align-items: flex-start;
+}
+
+.message-role {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.message-content {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  background-color: #fff; /* Update background color to white */
+  color: #1d1d1d; /* Update text color to dark */
+}
+
+/* CSS for chat input */
+.chat-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #292929;
+  color: #fff;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #1db954; /* Update background color to green */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #1ed760; /* Update background color on hover */
+}
+
+/* CSS for error message */
+.error-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ff6961; /* Update text color to red */
+}
+
+.model-dropdown {
+  margin-bottom: 20px;
 }

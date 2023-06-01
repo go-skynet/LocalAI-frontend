@@ -48,7 +48,6 @@ const ChatGptInterface = () => {
 
       const response = await fetch(`${host}/v1/chat/completions`, requestOptions);
 
-      let data = "";
       const reader = response.body.getReader();
       let partialData = "";
       let done = false;
@@ -68,14 +67,22 @@ const ChatGptInterface = () => {
             const line = lines[i];
             if (line.startsWith("data: ")) {
               const jsonStr = line.substring("data: ".length);
-              const json = JSON.parse(jsonStr);
+              if (jsonStr == "[DONE]") {
+                done = true;
+              } else {
+                const json = JSON.parse(jsonStr);
 
-              // Check if the response contains choices and delta fields
-              if (json.choices && json.choices.length > 0 && json.choices[0].delta) {
-                const token = json.choices[0].delta.content;
-                if (token !== undefined) {
-                  assistantResponse += token;
-                  setCurrentAssistantMessage(assistantResponse);
+                // Check if the response contains choices and delta fields
+                if (
+                  json.choices &&
+                  json.choices.length > 0 &&
+                  json.choices[0].delta
+                ) {
+                  const token = json.choices[0].delta.content;
+                  if (token !== undefined) {
+                    assistantResponse += token;
+                    setCurrentAssistantMessage(assistantResponse);
+                  }
                 }
               }
             }

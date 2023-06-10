@@ -1,5 +1,5 @@
 # First stage
-FROM node:alpine AS build
+FROM node:18-alpine AS build
 ENV NODE_ENV=production
 RUN mkdir -p /srv/app
 WORKDIR /srv/app
@@ -10,7 +10,7 @@ COPY public ./public
 COPY entrypoint.sh ./
 
 # Second stage
-FROM node:alpine as final
+FROM node:18-alpine as final
 RUN mkdir -p /srv/app
 WORKDIR /srv/app
 COPY --from=build /srv/app/ ./

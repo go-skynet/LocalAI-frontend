@@ -4,7 +4,7 @@ ENV NODE_ENV=production
 RUN mkdir -p /srv/app
 WORKDIR /srv/app
 COPY package*.json ./
-RUN npm ci --production
+RUN npm ci --omit=dev
 COPY src ./src
 COPY public ./public
 COPY entrypoint.sh ./

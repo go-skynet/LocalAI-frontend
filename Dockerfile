@@ -1,20 +1,21 @@
 # First stage
 FROM node:alpine AS build
 ENV NODE_ENV=production
-WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
-COPY . .
-EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
+RUN mkdir -p /srv/app
+WORKDIR /srv/app
+COPY package*.json ./
+RUN npm ci --production
+COPY src ./src
+COPY public ./public
+COPY entrypoint.sh ./
 
 # Second stage
-FROM --platform=$BUILDPLATFORM node:alpine
-WORKDIR /usr/src/app
-COPY --from=build /usr/src/app .
+FROM node:alpine as final
+RUN mkdir -p /srv/app
+WORKDIR /srv/app
+COPY --from=build /srv/app/ ./
+RUN chown -R node /srv/app
+RUN npm install -g serve
 EXPOSE 3000
-RUN npm install --force
-RUN chown -R node /usr/src/app && npm install react-scripts
 USER node
-CMD ["npm", "start"]
+CMD ["/bin/sh", "./entrypoint.sh"]

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, Fragment } from "react";
 import "./index.css";
 
-const host = "http://localhost:8080";
+const host = process.env.REACT_APP_API_HOST;
 const temperature = 0.7;
 
 const ChatGptInterface = () => {

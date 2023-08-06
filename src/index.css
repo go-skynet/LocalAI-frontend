@@ -25,12 +25,15 @@ code {
 
 .model-dropdown select {
   padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px;
   font-size: 1.1rem;
   border-radius: 5px;
   border: none;
   background-color: #292929;
   color: #fff;
 }
+
 
 /* CSS for chat messages */
 .chat-container {
@@ -120,4 +123,19 @@ code {
 
 .model-dropdown {
   margin-bottom: 20px;
+  width: 70%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
+
+.left-dropdown {
+  flex: 1; /* Add this to make both dropdowns take equal space */
+  max-width: 45%;
+}
+.right-dropdown {
+  flex: 1; /* Add this to make both dropdowns take equal space */
+  max-width: 45%;
+}
+
+

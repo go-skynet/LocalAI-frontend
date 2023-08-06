@@ -122,6 +122,34 @@ const ChatGptInterface = () => {
     fetchModels();
   }, []);
 
+  const [modelList, setModelList] = useState([]);
+
+  useEffect(() => {
+    // Function to fetch data from the API endpoint
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${host}/models/available`);
+        const data = await response.json();
+
+        // Process the data and extract the "name" field from each object
+        const names = data.map((item) => item.name);
+
+        // Append the names to the modelList state
+        setModelList(names);
+        console.log("The list is:",names);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  const handleGalleryChange = (event) => {
+    const selectedModel = event.target.value;
+    console.log("the selected model is:",selectedModel);
+  };
   const handleModelChange = (e) => {
     setSelectedModel(e.target.value);
   };
@@ -149,7 +177,7 @@ const ChatGptInterface = () => {
     <div className="chat-page">
       {/* Render dropdown list for models */}
       <div className="model-dropdown">
-        <select
+        <select className="left-dropdown"
           value={selectedModel}
           onChange={handleModelChange}
           disabled={isLoading}
@@ -161,7 +189,21 @@ const ChatGptInterface = () => {
             </option>
           ))}
         </select>
+        
+        <select className="right-dropdown"
+        value={''} // Make sure to set a value, usually an empty string, not the modelList state itself
+        onChange={handleGalleryChange}
+        disabled={isLoading}
+      >
+        <option value="">Model Gallery</option>
+        {modelList.map((name, index) => (
+          <option key={index} value={name}>
+            {name}
+          </option>
+        ))}
+      </select>
       </div>
+
       <div className="chat-container" ref={chatContainerRef}>
         <div className="chat-messages">
           {/* Render user input and chatbot responses */}

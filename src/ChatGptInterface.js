@@ -109,45 +109,21 @@ const ChatGptInterface = () => {
     }
   };
 
-  const handlemodelSubmit = async (selectedModel) => {
-    // Reset error state and set loading state
-    setError(null);
-    setIsLoading(true);
-    const data = {
-      id: selectedModel
-    };
-
-    const curlCommand = `curl ${host}/models/apply -H "Content-Type: application/json" -d '${JSON.stringify(data)}'`;
-  console.log("Equivalent cURL command:", curlCommand);
+  const fetchModels = async () => {
     try {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      };
-
-      const response = await fetch(`${host}/models/apply`, requestOptions);
-      console.log("Model Apply response is:", response.statusText);
+      const response = await fetch(`${host}/v1/models`);
+      const data = await response.json();
+      setModels(data?.data || []);
     } catch (error) {
       console.error("Error:", error);
-      setError("Failed to fetch response. Please try again: " + error.message);
-    } finally {
-      setIsLoading(false);
-      console.log("After fetch");
     }
   };
-
   useEffect(() => {
-    const fetchModels = async () => {
-      try {
-        const response = await fetch(`${host}/v1/models`);
-        const data = await response.json();
-        setModels(data?.data || []);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
     fetchModels();
+    const intervalId = setInterval(fetchModels, 10000); // 10000 milliseconds = 10 seconds
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
   }, []);
 
   const [modelList, setModelList] = useState([]);
@@ -172,6 +148,37 @@ const ChatGptInterface = () => {
 
     fetchData();
   }, []);
+
+  const handlemodelSubmit = async (selectedModel) => {
+    // Reset error state and set loading state
+    setError(null);
+    setIsLoading(true);
+    const data = {
+      id: selectedModel
+    };
+
+    const curlCommand = `curl ${host}/models/apply -H "Content-Type: application/json" -d '${JSON.stringify(data)}'`;
+    console.log("Equivalent cURL command:", curlCommand);
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      };
+
+      const response = await fetch(`${host}/models/apply`, requestOptions);
+      const responsedata = await response.json();
+      console.log("The response URL should be here:",responsedata);
+      console.log("Model Apply response is:", response.statusText);
+    } catch (error) {
+      console.error("Error:", error);
+      setError("Failed to fetch response. Please try again: " + error.message);
+    } finally {
+      setIsLoading(false);
+      console.log("After fetch");
+    }
+  };
+
 
 
   const handleGalleryChange = (event) => {

@@ -109,6 +109,34 @@ const ChatGptInterface = () => {
     }
   };
 
+  const handlemodelSubmit = async (selectedModel) => {
+    // Reset error state and set loading state
+    setError(null);
+    setIsLoading(true);
+    const data = {
+      id: selectedModel
+    };
+
+    const curlCommand = `curl ${host}/models/apply -H "Content-Type: application/json" -d '${JSON.stringify(data)}'`;
+  console.log("Equivalent cURL command:", curlCommand);
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      };
+
+      const response = await fetch(`${host}/models/apply`, requestOptions);
+      console.log("Model Apply response is:", response.statusText);
+    } catch (error) {
+      console.error("Error:", error);
+      setError("Failed to fetch response. Please try again: " + error.message);
+    } finally {
+      setIsLoading(false);
+      console.log("After fetch");
+    }
+  };
+
   useEffect(() => {
     const fetchModels = async () => {
       try {
@@ -149,6 +177,7 @@ const ChatGptInterface = () => {
   const handleGalleryChange = (event) => {
     const selectedModel = event.target.value;
     console.log("the selected model is:",selectedModel);
+    handlemodelSubmit(selectedModel);
   };
   const handleModelChange = (e) => {
     setSelectedModel(e.target.value);

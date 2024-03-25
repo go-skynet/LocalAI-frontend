@@ -9,8 +9,16 @@ To use the frontend WebUI, follow the steps below:
 ### Docker method (Preferred)
 Move the sample-docker-compose.yaml to docker-compose.yaml in the LocalAI directory ( Assuming you have already set it up) , and run:
 ```bash
-docker-compose up -d --build
+# build locally
+docker compose -f ./docker-compose.build.yaml up --build
+
+# run from quay
+docker compose -f ./docker-compose.run.yaml up
 ```
+
+*IMPORTANT:* It creates a nginx container. Edit the nginx.conf file to point to the LocalAI backend API, and you should be good to go! It allows to bypass the cors errors.
+
+
 That should take care of it, you can use a reverse proxy like Apache to access it from wherever you want!
 Currently, both arm64 and x86 systems are supported
 

@@ -67,7 +67,7 @@ const ChatGptInterface = () => {
             const line = lines[i];
             if (line.startsWith("data: ")) {
               const jsonStr = line.substring("data: ".length);
-              if (jsonStr == "[DONE]") {
+              if (jsonStr === "[DONE]") {
                 done = true;
               } else {
                 const json = JSON.parse(jsonStr);

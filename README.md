@@ -16,7 +16,7 @@ docker compose -f ./docker-compose.build.yaml up --build
 docker compose -f ./docker-compose.run.yaml up
 ```
 
-*IMPORTANT:* It creates a nginx container. Edit the nginx.conf file to point to the LocalAI backend API, and you should be good to go! It allows to bypass the corss errors.
+*IMPORTANT:* It creates a nginx container. Edit the nginx.conf file to point to the LocalAI backend API, and you should be good to go! It allows to bypass the cors errors.
 
 
 That should take care of it, you can use a reverse proxy like Apache to access it from wherever you want!

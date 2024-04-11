@@ -56,6 +56,7 @@ jobs:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
+
       - name: Build
         if: github.event_name != 'pull_request'
         uses: docker/build-push-action@v4
@@ -66,6 +67,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.prep.outputs.tags }}
+
       - name: Build PRs
         if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v4
